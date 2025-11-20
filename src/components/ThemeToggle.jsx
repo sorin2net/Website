@@ -17,3 +17,5 @@ export const ThemeToggle = () => {
 }
     return <button onClick={toggleTheme}>{isDarkMode ? <Sun className="h-6 w-6 text-yellow-300" />: <Moon className="h-6 w-6 text-blue-900"/>} </button>
 };
+//min 40
+//npm run dev in terminal
