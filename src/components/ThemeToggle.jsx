@@ -1,6 +1,7 @@
+import { Sun, Moon } from "lucide-react";
 import { useState } from "react"
 
 export const ThemeToggle = () => {
-    const [istDarkMode,setIsDarkMode]= useState(false);
+    const [isDarkMode,setIsDarkMode]= useState(false);
     return <button>{isDarkMode ? <Sun />: <Moon />} </button>
 }
