@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 
 //steaua va avea id,size,x,y,opacity, duration
-
+//la fel si meteorul, dar cu delay in loc de opacity
 export const StarBackground = () => {   
 
     const [stars, setStars] = useState([]);
+    const [meteors, setMeteors] = useState([]);
+
     useEffect (() => {
         generateStars();
+        generateMeteors();
     } , []); //vector de dependente gol pt a rula o singura data
 
     const generateStars = () => {
@@ -27,6 +30,31 @@ export const StarBackground = () => {
         } 
         setStars(newStars);
     };
+
+
+   
+
+    const generateMeteors = () => {
+        const numberOfMeteors = 4; //numar fix de meteoriti
+
+        const newMeteors = [];
+        for (let i = 0; i < numberOfMeteors; i++) {
+            newMeteors.push({
+                id: i,
+                size: Math.random() * 2 + 1, 
+                x: Math.random() * 100,
+                y: Math.random() * 20,
+                delay: Math.random() * 15, 
+                animationDuration: Math.random() * 3 + 3, 
+            })
+        } 
+        setMeteors(newMeteors);
+    };
+
+
+
+
+
     return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">  
         {stars.map((star) => (
@@ -39,6 +67,17 @@ export const StarBackground = () => {
                 animationDuration: star.animationDuration + "s",
             }}  />
         ))}
+        
+        {meteors.map((meteor) => (
+            <div key={meteor.id} className="meteor animate-meteor" style={{
+                width: meteor.size *30 + "px",
+                height: meteor.size *3+ "px" ,
+                left: meteor.x + "%",
+                top: meteor.y + "%",
+                animationDelay: meteor.delay ,
+                animationDuration: meteor.animationDuration + "s",
+            }}  />
+        ))}
      </div>
      );
-};
+}; //daca scot de mai sus multiplierile din size, meteoritii vor fi la fel de mari ca stelele si arata de parca cad stelele
