@@ -38,7 +38,7 @@ useEffect(() => {
     return (
     <button onClick={toggleTheme} 
     className={cn("fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300", 
-        "focus:outlin-hidden" //elimin conturul albastru la click
+        "focus:outline-hidden" //elimin conturul albastru la click
 
     )} 
     >
@@ -48,7 +48,7 @@ useEffect(() => {
     ) : (
         <Moon className="h-6 w-6 text-blue-900"/>
     )} 
-    </button>     //daca e dark arat soarele, altfel luna
-    ); 
+    </button>     
+    ); {/* daca e dark arat soarele, altfel luna */}
 };
 

@@ -17,7 +17,7 @@ export const Navbar= () => {
 
     useEffect (() => {
         const handleScroll = () => {
-            setIsScrolled(window.screenY > 10); //daca s-a dat scroll mai mult de 10px
+            setIsScrolled(window.scrollY > 10); //daca s-a dat scroll mai mult de 10px
         } 
 
         window.addEventListener("scroll", handleScroll);
@@ -31,7 +31,7 @@ export const Navbar= () => {
     <nav className={cn("fixed w-full z-40 transition-all duration-300", isScrolled ? "py-3 bg-background/80 backdrop-blur-md shadow-xs" : "py-5")}>
 
         <div className="container flex items-center justify-between">
-            <a className="text-xl font-bold text-primary flex item-center" 
+            <a className="text-xl font-bold text-primary flex items-center" 
             href="#hero"
             > 
                 <span  className="relative z-10">
@@ -53,14 +53,14 @@ export const Navbar= () => {
             {/* mobile nav */}
                 
             <button onClick={() =>  setIsMenuOpen((prev)=>!prev)} 
-            className="md:hidden p-2 text-foregound z-50"
+            className="md:hidden p-2 text-foreground z-50"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             
             >  
 
                     {isMenuOpen ? <X size={24}   />  :  <Menu size={24} />  }  
                 </button> 
-            <div className={cn("fixed inset-0 bg-background/95 backdroup-blur-md z-40 flex flex-col items-center justify-center ",
+            <div className={cn("fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center ",
                 "transition-all duration-300 md:hidden",
                 isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
             )}>
