@@ -45,21 +45,24 @@ export const StarBackground = () => {
    
 
     const generateMeteors = () => {
-        const numberOfMeteors = 4; //numar fix de meteoriti
+    const newMeteors = [];
 
-        const newMeteors = [];
-        for (let i = 0; i < numberOfMeteors; i++) {
-            newMeteors.push({
-                id: i,
-                size: Math.random() * 2 + 1, 
-                x: Math.random() * 100,
-                y: Math.random() * 20,
-                delay: Math.random() * 15, 
-                animationDuration: Math.random() * 3 + 3, 
-            })
-        } 
-        setMeteors(newMeteors);
-    };
+    for (let i = 0; i < 4; i++) {
+        newMeteors.push({
+            id: i,
+            size: Math.random() * 2 + 1,
+            x: i < 2 
+                ? Math.random() * 40
+                : 50 + Math.random() * 40,
+            y: Math.random() * 20,
+            delay: Math.random() * 15,
+            animationDuration: Math.random() * 3 + 3,
+        });
+    }
+
+    setMeteors(newMeteors);
+};
+
 
 
 
