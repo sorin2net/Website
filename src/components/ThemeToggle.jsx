@@ -51,5 +51,4 @@ useEffect(() => {
     </button>     //daca e dark arat soarele, altfel luna
     ); 
 };
-//min 40
-//npm run dev in terminal
+
