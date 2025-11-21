@@ -32,7 +32,7 @@ export const StarBackground = () => {
         {stars.map((star) => (
             <div key={star.id} className="star animate-pulse-subtle" style={{
                 width: star.size + "px",
-                heigth: star.size + "px" ,
+                height: star.size + "px" ,
                 left: star.x + "%",
                 top: star.y + "%",
                 opacity: star.opacity ,
