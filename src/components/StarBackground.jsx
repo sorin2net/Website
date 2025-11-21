@@ -10,6 +10,16 @@ export const StarBackground = () => {
     useEffect (() => {
         generateStars();
         generateMeteors();
+
+        const handleResize = () => {
+            generateStars();
+            
+        }
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        }
+
     } , []); //vector de dependente gol pt a rula o singura data
 
     const generateStars = () => {
@@ -70,7 +80,7 @@ export const StarBackground = () => {
         
         {meteors.map((meteor) => (
             <div key={meteor.id} className="meteor animate-meteor" style={{
-                width: meteor.size *30 + "px",
+                width: meteor.size *5 + "px",
                 height: meteor.size *3+ "px" ,
                 left: meteor.x + "%",
                 top: meteor.y + "%",
