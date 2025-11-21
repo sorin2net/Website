@@ -11,8 +11,8 @@ function App() {
     <>
     <BrowserRouter>
       <Routes>
-        <Route index element={<Home />}/>
-        <Route path="*" element={<NotFound />}/>
+        <Route index element={<Home />}/> //ruta principala
+        <Route path="*" element={<NotFound />}/> //pentru orice ruta neexistenta
       </Routes>
     </BrowserRouter>
     </>
