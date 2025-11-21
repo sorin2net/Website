@@ -14,6 +14,7 @@ export const StarBackground = () => {
         const handleResize = () => {
             generateStars();
             
+            
         }
         window.addEventListener("resize", handleResize);
         return () => {
@@ -43,17 +44,37 @@ export const StarBackground = () => {
 
 
    
-
+/* Varianta cu zone fixe pentru meteoriti
     const generateMeteors = () => {
-    const newMeteors = [];
+    const zones = [
+        { xMin: 0,  xMax: 30, yMin: 0,  yMax: 10 }, 
+        { xMin: 0,  xMax: 30, yMin: 10, yMax: 20 }, 
+        { xMin: 70, xMax: 100, yMin: 0,  yMax: 10 }, 
+        { xMin: 70, xMax: 100, yMin: 10, yMax: 20 }, 
+    ];
 
-    for (let i = 0; i < 4; i++) {
+    const newMeteors = zones.map((zone, i) => ({
+        id: i,
+        size: Math.random() * 2 + 1,
+        x: zone.xMin + Math.random() * (zone.xMax - zone.xMin),
+        y: zone.yMin + Math.random() * (zone.yMax - zone.yMin),
+        delay: Math.random() * 15,
+        animationDuration: Math.random() * 3 + 3,
+    }));
+
+    setMeteors(newMeteors);
+};
+*/
+
+const generateMeteors = () => {
+    const numberOfMeteors = 4; // numar fix de meteoriti
+
+    const newMeteors = [];
+    for (let i = 0; i < numberOfMeteors; i++) {
         newMeteors.push({
             id: i,
             size: Math.random() * 2 + 1,
-            x: i < 2 
-                ? Math.random() * 40
-                : 50 + Math.random() * 40,
+            x: Math.random() * 100,
             y: Math.random() * 20,
             delay: Math.random() * 15,
             animationDuration: Math.random() * 3 + 3,
@@ -62,6 +83,7 @@ export const StarBackground = () => {
 
     setMeteors(newMeteors);
 };
+
 
 
 
