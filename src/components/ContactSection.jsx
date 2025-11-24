@@ -1,16 +1,29 @@
 import { Facebook, Instagram, Linkedin, Mail, Map, MapPin, Phone, Send } from "lucide-react"
 import { cn } from "../lib/utils"
+import { useToast } from "../hooks/use-toast"
+import { Description } from "@radix-ui/react-toast";
+import { useState } from "react";
 
 
 export const ContactSection= () => {
 
+ const {toast}= useToast();
+ const [isSubmitting,setIsSubmitting]=useState(false);
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        setIsSubmitting(true);
+
 
         setTimeout(()=>{
-            
+            toast({
+                title: "Message sent!",
+                Description: "Thank you for the message, dear user!",
+            });
+            setIsSubmitting(false);
         },1500)
+        
     }
 
     return (
@@ -77,7 +90,7 @@ export const ContactSection= () => {
                         </div>
                     </div>
 
-                    <div className="bg-card p-8 rounded-lg shadow-xs">
+                    <div className="bg-card p-8 rounded-lg shadow-xs" onSubmit={handleSubmit}>
                         <h3 className="text-2xl font-semibold mb-6"> Send a message</h3>
                         <form className="space-y-6">
                             <div>
@@ -117,11 +130,13 @@ export const ContactSection= () => {
                                 placeholder="Mesaj..."
                                 />
                             </div>
-                            <button type="submit" className={cn(
+                            <button type="submit" 
+                            disabled={isSubmitting}
+                            className={cn(
                                 "cosmic-button w-full flex items-center justify-center gap-2",
                                 
                                 )}>
-                                    Send Message
+                                    {isSubmitting ? "Sending..." : "Send Message"}
                                     <Send size={16}/> {/* aici ar putea fi pus un api cu care sa mearga mail-ul, ca gs mail */}
                             </button>
                         </form>
