@@ -3,7 +3,7 @@ import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { Toaster } from "./components/ui/toaster";
 
-
+{/*https://www.youtube.com/watch?v=b4i8l73DU6A&t=5146s*/}
 
 
 function App() {

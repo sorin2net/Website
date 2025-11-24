@@ -30,4 +30,4 @@ export const Home= () => {
         <Footer/>
 
     </div>;
-}; {/* ramas la 1:40:50 sectiunea skills */}
+}; 
