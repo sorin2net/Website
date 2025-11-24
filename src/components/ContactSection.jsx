@@ -1,8 +1,17 @@
-import { Facebook, Instagram, Linkedin, Mail, Map, MapPin, Phone } from "lucide-react"
+import { Facebook, Instagram, Linkedin, Mail, Map, MapPin, Phone, Send } from "lucide-react"
+import { cn } from "../lib/utils"
 
 
 export const ContactSection= () => {
 
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+
+        setTimeout(()=>{
+            
+        },1500)
+    }
 
     return (
         <section id="contact"
@@ -66,6 +75,56 @@ export const ContactSection= () => {
                                 </a>
                             </div>
                         </div>
+                    </div>
+
+                    <div className="bg-card p-8 rounded-lg shadow-xs">
+                        <h3 className="text-2xl font-semibold mb-6"> Send a message</h3>
+                        <form className="space-y-6">
+                            <div>
+                                <label htmlFor="name" className="block text-sm font-medium mb-2"> Your Name </label>
+                                <input 
+                                type="text" 
+                                id="name" 
+                                name="name" 
+                                required 
+                                autoComplete="name"
+                                className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                                placeholder="Nume..."
+                                />
+                            </div>
+
+                            <div>
+                                <label htmlFor="email" className="block text-sm font-medium mb-2"> Your Email </label>
+                                <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required 
+                                autoComplete="email"
+                                className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                                placeholder="@gmail.com..."
+                                />
+                            </div>
+
+                            <div>
+                                <label htmlFor="message" className="block text-sm font-medium mb-2"> Your Message </label>
+                                <textarea 
+                                id="message" 
+                                name="message" 
+                                required 
+                                autoComplete="off"
+                                className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-none focus:ring-2 focus:ring-primary resize-none"
+                                placeholder="Mesaj..."
+                                />
+                            </div>
+                            <button type="submit" className={cn(
+                                "cosmic-button w-full flex items-center justify-center gap-2",
+                                
+                                )}>
+                                    Send Message
+                                    <Send size={16}/> {/* aici ar putea fi pus un api cu care sa mearga mail-ul, ca gs mail */}
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
