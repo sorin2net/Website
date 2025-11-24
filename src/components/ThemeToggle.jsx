@@ -51,4 +51,3 @@ useEffect(() => {
     </button>     
     ); {/* daca e dark arat soarele, altfel luna */}
 };
-
