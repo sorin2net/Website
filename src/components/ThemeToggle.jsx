@@ -3,51 +3,50 @@ import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils";
 
 export const ThemeToggle = () => {
-    const [isDarkMode,setIsDarkMode]= useState(true);
+    // 1. REPARATIE: Inițializăm starea verificând direct LocalStorage.
+    // Asta rezolvă eroarea "set-state-in-effect".
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        // Verificăm dacă codul rulează în browser (fereastra există)
+        if (typeof window !== "undefined") {
+            const storedTheme = localStorage.getItem("theme");
+            // Dacă userul are "light" salvat, returnăm false.
+            // Altfel (dacă e "dark" sau nu are nimic salvat), returnăm true.
+            return storedTheme !== "light";
+        }
+        return true; // Default server-side
+    });
 
-useEffect(() => {
-    const storedTheme = localStorage.getItem("theme"); //verific tema salvata in local storage
-    if (storedTheme === "dark") { 
-        setIsDarkMode(true); //setez starea pe dark
-        document.documentElement.classList.add("dark"); 
-        
-    } else {
-        localStorage.setItem("theme","light");
-            setIsDarkMode(false); //setez starea pe light
-
-    }
-} , []) //vector de dependente gol pt a rula o singura data
-
+    // 2. useEffect acum doar sincronizează clasa CSS cu starea.
+    // Nu mai modificăm starea aici.
+    useEffect(() => {
+        const root = window.document.documentElement;
+        if (isDarkMode) {
+            root.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        } else {
+            root.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+        }
+    }, [isDarkMode]); // Se activează automat când se schimbă isDarkMode
 
     const toggleTheme = () => {
-        if(isDarkMode){
-            
-            document.documentElement.classList.remove("dark"); //elimin clasa dark
-            localStorage.setItem("theme","light");
-            setIsDarkMode(false);
+        setIsDarkMode((prev) => !prev);
     }
 
-
-        else{
-            document.documentElement.classList.add("dark"); //adaug clasa dark
-            localStorage.setItem("theme","dark");
-            setIsDarkMode(true);
-        }
-
-}
     return (
-    <button onClick={toggleTheme} 
-    className={cn("fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300", 
-        "focus:outline-hidden" //elimin conturul albastru la click
-
-    )} 
-    >
-
-        {isDarkMode ? (
-        <Sun className="h-6 w-6 text-yellow-300" />
-    ) : (
-        <Moon className="h-6 w-6 text-blue-900"/>
-    )} 
-    </button>     
-    ); {/* daca e dark arat soarele, altfel luna */}
+        <button
+            onClick={toggleTheme}
+            className={cn(
+                "fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition-colors duration-300",
+                "focus:outline-none focus:ring-2 focus:ring-primary" // Am pus outline-none standard
+            )}
+        >
+            {isDarkMode ? (
+                <Sun className="h-6 w-6 text-yellow-300" />
+            ) : (
+                <Moon className="h-6 w-6 text-blue-900"/>
+            )}
+        </button>
+    );
+    // Am șters comentariul de aici care cauza eroarea "Unreachable code"
 };
