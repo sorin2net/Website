@@ -50,7 +50,7 @@ const projects = [
         id: 6,
         title: "Personal Portfolio Website",
         description: "Site-ul pe care navighezi chiar acum. O aplicație Single Page (SPA) modernă, construită cu React și Vite. Include temă dinamică (Dark/Light), animații CSS avansate și formular de contact funcțional integrat cu EmailJS.",
-        image: "/projects/portfolio.png", 
+        image: "/projects/portfolio.png",
         tags: ["React", "Tailwind CSS", "Vite", "EmailJS", "Vercel"],
         demoUrl: "https://website-react-tailwind.vercel.app",
         githubUrl: "https://github.com/sorin2net/Website",
