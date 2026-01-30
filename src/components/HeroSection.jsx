@@ -17,9 +17,9 @@ export const HeroSection = () => {
                                 1000,
                                 'Developer',
                                 1000,
-                                'Tech Enthusiast',
+                                'Programming Tutor',
                                 1000,
-                                'Problem Solver',
+                                'Indie Game Dev',
                                 1000
                             ]}
                             wrapper="span"
@@ -31,8 +31,9 @@ export const HeroSection = () => {
                 </h1>
 
                 <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-                    Pasionat de tehnologie și programare, construiesc soluții web moderne și aplicații eficiente.
-                    Mereu dornic să învăț și să inovez.
+                    Student în anul 3 la Automatică și Calculatoare și intern la SCC Group.
+                    Scriu cod în C++, Java, Kotlin și Python, dezvoltând de la aplicații mobile până la sisteme desktop complexe.
+                    În timpul liber, ofer meditații la informatică și învăț să creez jocuri folosind Unity.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -51,7 +52,6 @@ export const HeroSection = () => {
                 </div>
             </div>
 
-            {/* Optional: Un glow effect in spate */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 blur-[100px] rounded-full -z-10 pointer-events-none" />
         </section>
     );

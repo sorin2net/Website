@@ -1,40 +1,41 @@
 import { useState } from "react";
 import { cn } from "../lib/utils";
 
-// 1. Importam iconitele
-// NOTA: Am scos SiVisualstudiocode care dadea eroare si am curatat importurile
+// Importam iconitele necesare
 import {
     FaJava, FaPython, FaReact, FaGitAlt, FaAndroid, FaTerminal,
-    FaDatabase, FaWindowMaximize
-} from "react-icons/fa"; // FontAwesome
+    FaDatabase
+} from "react-icons/fa";
 
 import {
     SiCplusplus, SiKotlin, SiUnity, SiTailwindcss,
-    SiIntellijidea, SiPycharm, SiOracle
-} from "react-icons/si"; // SimpleIcons
+    SiIntellijidea, SiOracle, SiFirebase, SiGooglecloud
+} from "react-icons/si";
 
-// Importam iconita de VS Code din setul ei specific (VSC)
 import { VscVscode } from "react-icons/vsc";
+import { TbNetwork } from "react-icons/tb"; // Iconita pentru Networking/Sockets
 
 const skills = [
-    { name: "C/C++", level: 90, category: "Programming Languages", icon: SiCplusplus },
-    { name: "Java", level: 85, category: "Programming Languages", icon: FaJava },
-    { name: "Python", level: 80, category: "Programming Languages", icon: FaPython },
-    { name: "Kotlin", level: 70, category: "Programming Languages", icon: SiKotlin },
-    { name: "SQL", level: 70, category: "Programming Languages", icon: FaDatabase },
+    // Languages
+    { name: "Java (OOP & Swing)", level: 90, category: "Programming Languages", icon: FaJava },
+    { name: "Kotlin", level: 85, category: "Programming Languages", icon: SiKotlin },
+    { name: "C/C++", level: 95, category: "Programming Languages", icon: SiCplusplus },
+    { name: "SQL & PL/SQL", level: 80, category: "Programming Languages", icon: FaDatabase },
+    { name: "Python", level: 85, category: "Programming Languages", icon: FaPython },
 
-    { name: "Unity", level: 80, category: "Frameworks & Technologies", icon: SiUnity },
-    { name: "React", level: 70, category: "Frameworks & Technologies", icon: FaReact },
-    { name: "Tailwind CSS", level: 65, category: "Frameworks & Technologies", icon: SiTailwindcss },
-    { name: "Android Dev", level: 65, category: "Frameworks & Technologies", icon: FaAndroid },
-    { name: "Tkinter", level: 60, category: "Frameworks & Technologies", icon: FaWindowMaximize },
+    // Frameworks & Tech
+    { name: "Android SDK", level: 80, category: "Frameworks & Technologies", icon: FaAndroid },
+    { name: "Firebase", level: 75, category: "Frameworks & Technologies", icon: SiFirebase },
+    { name: "React", level: 75, category: "Frameworks & Technologies", icon: FaReact },
+    { name: "Unity Engine", level: 80, category: "Frameworks & Technologies", icon: SiUnity },
+    { name: "Socket Networking", level: 75, category: "Frameworks & Technologies", icon: TbNetwork },
 
-    // AICI am pus noua iconita VscVscode care merge sigur
-    { name: "Visual Studio Code", level: 90, category: "Tools", icon: VscVscode },
-    { name: "Git / GitHub", level: 80, category: "Tools", icon: FaGitAlt },
-    { name: "IntelliJ / PyCharm", level: 80, category: "Tools", icon: SiIntellijidea },
+    // Tools
+    { name: "Git / GitHub", level: 85, category: "Tools", icon: FaGitAlt },
+    { name: "Oracle SQL Dev", level: 70, category: "Tools", icon: SiOracle },
+    { name: "IntelliJ / Android Studio", level: 85, category: "Tools", icon: SiIntellijidea },
     { name: "Terminal / Bash", level: 70, category: "Tools", icon: FaTerminal },
-    { name: "Oracle SQL Dev", level: 65, category: "Tools", icon: SiOracle },
+    { name: "VS Code", level: 90, category: "Tools", icon: VscVscode },
 ];
 
 const categories = ["All", "Programming Languages", "Frameworks & Technologies", "Tools"];
@@ -70,7 +71,6 @@ export const SkillsSection = () => {
                             {/* Header cu Iconita si Nume */}
                             <div className="flex items-center gap-4 mb-4">
                                 <div className="p-3 rounded-full bg-secondary/50 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                                    {/* Randam componenta iconitei */}
                                     <skill.icon size={24} />
                                 </div>
                                 <h3 className="font-semibold text-lg">{skill.name}</h3>
