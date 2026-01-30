@@ -1,52 +1,58 @@
-import { useState, useEffect } from "react";
-import { ArrowDown } from "lucide-react";
+import { ArrowRight, Download } from "lucide-react";
+import { TypeAnimation } from 'react-type-animation';
 
 export const HeroSection = () => {
-  const [showScroll, setShowScroll] = useState(true);
+    return (
+        <section id="hero" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+            <div className="container mx-auto px-4 z-10 text-center">
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowScroll(window.scrollY <= 10); // vizibil doar cand esti sus
-    };
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+                    Salut, sunt <span className="text-primary">Denis Dumitriu</span>
+                    <br />
+                    <span className="text-2xl md:text-4xl lg:text-5xl text-muted-foreground mt-4 block">
+                        I am a{" "}
+                        <TypeAnimation
+                            sequence={[
+                                'Student',
+                                1000,
+                                'Developer',
+                                1000,
+                                'Tech Enthusiast',
+                                1000,
+                                'Problem Solver',
+                                1000
+                            ]}
+                            wrapper="span"
+                            speed={50}
+                            className="text-primary font-bold"
+                            repeat={Infinity}
+                        />
+                    </span>
+                </h1>
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+                <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+                    Pasionat de tehnologie și programare, construiesc soluții web moderne și aplicații eficiente.
+                    Mereu dornic să învăț și să inovez.
+                </p>
 
-  return (
-    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center px-4">
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#projects" className="cosmic-button flex items-center gap-2">
+                        View Projects <ArrowRight size={18} />
+                    </a>
 
-      <div className="container max-w-4xl mx-auto text-center z-10">
-        <div className="space-y-6">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in">Salut, eu sunt</span>
-            <span className="text-primary opacity-0 animate-fade-in-delay-1"> Denis</span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">Dumitriu</span>
-          </h1>
+                    {/* Buton functional de download CV */}
+                    <a
+                        href="/CV_Denis_Dumitriu.pdf" // Asigura-te ca ai pus fisierul in folderul 'public'
+                        download="CV_Denis_Dumitriu.pdf"
+                        className="px-8 py-3 rounded-full border border-primary/50 text-foreground hover:bg-primary/10 hover:border-primary transition-all duration-300 flex items-center gap-2"
+                    >
+                        Download CV <Download size={18} />
+                    </a>
+                </div>
+            </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-            Sunt Student la Facultatea de Automatică și Calculatoare, pasionat de programare, dezvoltare web și tehnologie.
-            Pregătesc elevi pentru Bac, Olimpiade și Admitere.
-          </p>
-
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
-              Proiectele Mele
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Sageata scroll */}
-      <div
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce transition-opacity duration-300 ${
-          showScroll ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <span className="text-sm text-muted-foreground mb-2">Scroll</span>
-        <ArrowDown className="h-5 w-5 text-primary" />
-      </div>
-
-    </section>
-  );
+            {/* Optional: Un glow effect in spate */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 blur-[100px] rounded-full -z-10 pointer-events-none" />
+        </section>
+    );
 };
