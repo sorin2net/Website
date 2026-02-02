@@ -39,8 +39,11 @@ The site serves as a central hub for my work in **Java, Kotlin, Python, and Game
 
 ## 📬 Contact
 
-Feel free to reach out if you want to collaborate or just say hi!
 
 * **Email:** denisdumitriu95@gmail.com
 * **LinkedIn:** [Denis Dumitriu](https://www.linkedin.com/in/denis-dumitriu-1791111a8)
 * **GitHub:** [sorin2net](https://github.com/sorin2net)
+
+
+## Credits
+### PedroTech - https://www.youtube.com/watch?v=ifOJ0R5UQOc
