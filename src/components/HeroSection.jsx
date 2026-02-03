@@ -55,7 +55,7 @@ export const HeroSection = () => {
                     </a>
 
                     <a
-                        href="/CV_Denis_Dumitriu.pdf"
+                        href="/Dumitriu-Denis-Gabriel_CV.pdf"
                         download="CV_Denis_Dumitriu.pdf"
                         className="px-8 py-3 rounded-full border border-primary/50 text-foreground hover:bg-primary/10 hover:border-primary transition-all duration-300 flex items-center gap-2"
                     >
