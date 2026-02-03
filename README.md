@@ -4,6 +4,9 @@
 
 > A modern, responsive, and interactive personal portfolio website built to showcase my projects, skills, and professional journey as a Software Developer.
 
+# Link: https://website-react-tailwind.vercel.app/
+
+
 ## 🌟 Introduction
 
 This project is a **Single Page Application (SPA)** built with **React** and **Vite**, designed to offer a fast and seamless user experience. It features a cosmic-themed UI with dynamic background effects, a fully functional contact form, and a responsive layout that adapts to any device.
@@ -36,8 +39,11 @@ The site serves as a central hub for my work in **Java, Kotlin, Python, and Game
 
 ## 📬 Contact
 
-Feel free to reach out if you want to collaborate or just say hi!
 
 * **Email:** denisdumitriu95@gmail.com
 * **LinkedIn:** [Denis Dumitriu](https://www.linkedin.com/in/denis-dumitriu-1791111a8)
 * **GitHub:** [sorin2net](https://github.com/sorin2net)
+
+
+## Credits
+### PedroTech - https://www.youtube.com/watch?v=ifOJ0R5UQOc
